@@ -1,0 +1,290 @@
+.voice-assistant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  color: #ffffff;
+}
+
+.assistant-header {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.assistant-header h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.state-indicator {
+  margin-top: 10px;
+}
+
+.state-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.state-idle {
+  background: rgba(46, 213, 115, 0.2);
+  color: #2ed573;
+  border: 1px solid rgba(46, 213, 115, 0.3);
+}
+
+.state-listening {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  animation: pulse-state 1.5s ease-in-out infinite;
+}
+
+.state-thinking {
+  background: rgba(255, 165, 2, 0.2);
+  color: #ffa502;
+  border: 1px solid rgba(255, 165, 2, 0.3);
+  animation: thinking-pulse 1s ease-in-out infinite;
+}
+
+.state-speaking {
+  background: rgba(255, 71, 87, 0.2);
+  color: #ff4757;
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  animation: speaking-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes pulse-state {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes thinking-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes speaking-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+}
+
+.visualizer-container {
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.control-section {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+/* Override LiveKit styles for dark theme */
+.lk-control-bar {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 25px !important;
+  backdrop-filter: blur(10px) !important;
+  padding: 10px 20px !important;
+}
+
+.lk-button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.lk-button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.05) !important;
+}
+
+.lk-button:disabled {
+  opacity: 0.5 !important;
+}
+
+.conversation {
+  margin-top: 20px;
+  width: 100%;
+  height: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.conversation-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.no-messages {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  margin-top: 50px;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-agent {
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+.message-user {
+  color: #2ed573;
+  font-weight: 600;
+}
+
+.message-text {
+  color: #ffffff;
+  margin-left: 10px;
+  line-height: 1.5;
+}
+
+.instructions {
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .voice-assistant-container {
+    padding: 15px;
+  }
+  
+  .assistant-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .visualizer-container {
+    height: 150px;
+    max-width: 100%;
+  }
+  
+  .conversation {
+    height: 250px;
+  }
+  
+  .control-section {
+    max-width: 100%;
+  }
+  
+  .state-badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Loading states for visualizer */
+.lk-visualizer-bar {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  border-radius: 2px !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Enhanced hover effects */
+.conversation:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.message:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}

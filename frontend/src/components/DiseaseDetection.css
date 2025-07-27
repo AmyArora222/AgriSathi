@@ -1,0 +1,458 @@
+.disease-detection-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: #0a0a0a;
+  color: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.detection-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.detection-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.75rem 1.25rem;
+  /* color: #ffffff; */
+  color: #0a0a0a; /* Set text color to black or a dark color */
+  background-color: #ffffff; /* Explicitly set a white background for consistency */
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.detection-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.detection-header p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.upload-section {
+  margin-bottom: 3rem;
+}
+
+.upload-area {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 470px;
+  padding-top:2.1rem;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-area:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.upload-icon {
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.upload-icon svg {
+  stroke: #00d4ff;
+}
+
+.upload-placeholder h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.upload-placeholder p {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.upload-tips {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
+.image-preview {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+.image-preview:hover .image-overlay {
+  opacity: 1;
+}
+
+.change-image-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.change-image-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.analyze-button, .reset-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  backdrop-filter: blur(10px);
+}
+
+.analyze-button {
+  background: linear-gradient(135deg, #2ed573 0%, #20bf6b 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(46, 213, 115, 0.3);
+}
+
+.analyze-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(46, 213, 115, 0.4);
+}
+
+.analyze-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reset-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.reset-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 71, 87, 0.1);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  color: #ff4757;
+  font-weight: 500;
+}
+
+.result-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00d4ff;
+}
+
+.result-content {
+  display: grid;
+  gap: 2rem;
+}
+
+.disease-info, .symptoms-section, .treatment-section, .prevention-section, .additional-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.disease-info h3, .symptoms-section h3, .treatment-section h3, .prevention-section h3, .additional-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.disease-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff4757;
+  margin-bottom: 0.5rem;
+}
+
+.confidence-score {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.confidence-value {
+  color: #2ed573;
+  font-weight: 600;
+}
+
+.symptoms-list, .prevention-content {
+  line-height: 1.6;
+}
+
+.symptom-item, .prevention-tip {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.treatment-content, .info-content {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.treatment-text p, .prevention-text div, .info-content {
+  margin-bottom: 0.5rem;
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expert-connect-btn, .new-analysis-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  backdrop-filter: blur(10px);
+}
+
+.expert-connect-btn {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.expert-connect-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+.new-analysis-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.new-analysis-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .detection-content {
+    padding: 1rem;
+  }
+  
+  .detection-header {
+    margin-bottom: 2rem;
+  }
+  
+  .detection-header h1 {
+    font-size: 2rem;
+  }
+  
+  .back-button {
+    margin-bottom: 1rem;
+    align-self: flex-start;
+  }
+  
+  .upload-area {
+    min-height: 300px;
+  }
+  
+  .upload-placeholder {
+    height: 300px;
+    padding: 1rem;
+  }
+  
+  .action-buttons, .result-actions {
+    flex-direction: column;
+  }
+  
+  .analyze-button, .reset-button, .expert-connect-btn, .new-analysis-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .result-content {
+    gap: 1.5rem;
+  }
+  
+  .disease-info, .symptoms-section, .treatment-section, .prevention-section, .additional-info {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .detection-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .detection-header p {
+    font-size: 1rem;
+  }
+  
+  .upload-placeholder h3 {
+    font-size: 1.2rem;
+  }
+  
+  .upload-tips {
+    font-size: 2rem;
+    padding: 4rem;
+    margin-top: 30px;
+  }
+}
