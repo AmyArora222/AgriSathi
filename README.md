@@ -56,8 +56,8 @@ agricultural-voice-assistant/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/agricultural-voice-assistant.git
-cd agricultural-voice-assistant
+git clone https://github.com/yourusername/AgriSathi.git
+cd AgriSathi
 ```
 
 ### 2. Setup Virtual Environment
@@ -300,59 +300,7 @@ logging.getLogger("api").setLevel(logging.DEBUG)
 ```
 </details>
 
-## 📈 Performance & Scaling
 
-### Optimizations Made
-- **Dependencies**: Reduced from 35+ to 8 essential packages
-- **MongoDB**: Optimized queries with proper indexing  
-- **Voice Processing**: Native Gemini Live (no separate TTS/STT)
-- **Error Handling**: Comprehensive validation and recovery
-- **Logging**: Reduced verbosity for production use
-
-### Production Deployment
-```bash
-# For production deployment
-pip install gunicorn  # WSGI server
-gunicorn --bind 0.0.0.0:8000 src.agent:app
-```
-
-### Scaling Considerations
-- **MongoDB Atlas**: Auto-scales with traffic
-- **LiveKit**: Supports concurrent voice sessions
-- **Google Gemini**: Rate limiting considerations
-- **Government API**: Caching for price data
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-### Development Setup
-```bash
-# Fork the repository
-git clone https://github.com/yourusername/agricultural-voice-assistant.git
-cd agricultural-voice-assistant
-
-# Create feature branch
-git checkout -b feature/your-feature-name
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Make changes and test
-python src/agent.py
-
-# Submit pull request
-```
-
-### Code Style
-- **Python**: Follow PEP 8 guidelines
-- **Comments**: Hindi/English for agricultural terms
-- **Functions**: Comprehensive docstrings
-- **Testing**: Manual testing with voice conversations
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🌟 Acknowledgments
 
@@ -362,19 +310,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Government of India**: Open data APIs for crop prices
 - **Indian Farmers**: Inspiration and feedback for this project
 
-## 📞 Support & Contact
-
-### Getting Help
-1. **Issues**: [GitHub Issues](https://github.com/yourusername/agricultural-voice-assistant/issues)
-2. **Discussions**: [GitHub Discussions](https://github.com/yourusername/agricultural-voice-assistant/discussions)
-3. **Documentation**: This README + inline code comments
-
-### Project Status
-- **Voice Assistant**: ✅ Production Ready
-- **Database**: ✅ MongoDB Atlas Integrated  
-- **Price API**: ✅ Government Data Connected
-- **Security**: ✅ Input Validation Complete
-- **Testing**: ✅ Manual Testing Verified
 
 ---
 
